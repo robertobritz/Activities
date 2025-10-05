@@ -13,3 +13,10 @@ WORKDIR /var/www/html
 
 # Permissões e cache
 RUN chown -R www-data:www-data /var/www/html
+
+# Instalar dependências do sistema
+RUN apt-get update && apt-get install -y \
+    libicu-dev \
+    && docker-php-ext-install intl \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
