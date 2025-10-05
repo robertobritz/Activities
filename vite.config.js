@@ -10,4 +10,12 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    server: {
+        host: '0.0.0.0', // Permite conexões de qualquer host
+        port: 5173, // Porta dentro do container
+        hmr: {
+            host: 'localhost', // Host para Hot Module Replacement
+            port: 5174, // Porta mapeada no docker-compose
+        },
+    },
 });
